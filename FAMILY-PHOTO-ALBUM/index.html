@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <title>Document</title>
+    <style>
+        h1 {
+            text-align: center;
+            margin: 20px;
+        }
+        
+        body {
+            width: 80%;
+            margin: auto;
+        }
+        
+        .container {
+            display: flex;
+            flex-flow: row wrap;
+        }
+        
+        div img {
+            width: 70%;
+            height: 80%;
+        }
+        
+        .img-container {
+            width: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Family Photo album...</h1>
+    <div class="container">
+        <p id="result"></p>
+    </div>
+    <script src="json.json"></script>
+    <script>
+        var album = JSON.parse(images);
+        console.log(album);
+        console.table(album);
+        for (let i = 0; i < album.length; i++) {
+            $(".container").append(`<div id="${i}" class="img-container"><img id="img${i}"src='${album[i].image}'></div>`);
+
+            $(`#${i}`).on('click', function() {
+                var text = `${album[i].relation}`;
+
+
+                console.table(text);
+                $(this).append(`<p>Relation: ${album[i].relation},<br>${album[i].name}</p>`);
+
+
+
+            })
+
+
+            /*   $(`#${i}`).append(`<br><span>Relation: ${album[i].relation}</span>`);
+              $(`#${i}`).append(`<br><span>Name: ${album[i].name}</span>`);*/
+        }
+    </script>
+</body>
+
+</html>
