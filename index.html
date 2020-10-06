@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic ex1</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <style>
+        .pictures img {
+            width: 250px;
+            height: 250px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="pictures">
+        <img id="bell" alt="bell" src="./img/bell.png">
+        <img id="box" alt="box" src="./img/box.webp">
+        <img id="sc" alt="sants" src="./img/santa-claus.png">
+        <p class="result"></p>
+
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            //2nd version
+
+            $("img").on('click', function() {
+                    var text = $(this).attr("alt")
+                    $(this).parent().find('p').text("this is " + text);
+                })
+                /*     var santa = "santa claus";
+                    var box = "box";
+                    var bell = "bell";
+
+
+                    $('#sc').on('click', function() {
+                        $(".result").text("This is " + santa);
+                    });
+
+                    $('#box').on('click', function() {
+                        $(".result").text("This is " + box);
+                    });
+                    $('#bell').on('click', function() {
+                        $(".result").text("This is " + bell);
+                    }); */
+
+        });
+    </script>
+</body>
+
+</html>
